@@ -14,7 +14,7 @@ class AndroidWebTest(unittest.TestCase):
   success_msg = 'You logged into a secure area!'
 
   def setUp(self):
-    self._command_executor = RemoteConnection(configs.kobitonServerUrl, resolve_ip=False)
+    self._command_executor = RemoteConnection(configs.kobitonServerUrl, verify=False,resolve_ip=False)
     self._command_executor.set_timeout(configs.session_timeout)
     self.driver = webdriver.Remote(self._command_executor, configs.desired_caps_android_web)
     self.driver.implicitly_wait(configs.session_timeout)
