@@ -6,6 +6,8 @@ from selenium.webdriver.remote.remote_connection import RemoteConnection
 import unittest
 import re
 import time
+import urllib3
+urllib3.disable_warnings()
 import sys
 sys.path.append('..')
 import configs
