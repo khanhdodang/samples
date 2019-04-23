@@ -6,8 +6,6 @@ from selenium.webdriver.remote.remote_connection import RemoteConnection
 import unittest
 import re
 import time
-import urllib3
-urllib3.disable_warnings()
 import sys
 sys.path.append('..')
 import configs
@@ -18,7 +16,9 @@ class AndroidAppTest(unittest.TestCase):
   secondQuestion = 'Cruise Control'
 
   def setUp(self):
-    self.driver = webdriver.Remote(configs.kobitonServerUrl, configs.desired_caps_android_app)
+    self._command_executor = RemoteConnection(configs.kobitonServerUrl, resolve_ip=False)
+    self._command_executor.set_timeout(configs.session_timeout)
+    self.driver = webdriver.Remote(self._command_executor, configs.desired_caps_android_app)
     self.driver.implicitly_wait(configs.session_timeout)
 
     kobitonSessionId = self.driver.desired_capabilities.get('kobitonSessionId')
