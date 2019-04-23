@@ -28,7 +28,7 @@ class AndroidAppTest(unittest.TestCase):
     self.driver.quit()
 
   def test_android_app(self):
-    self.search_questions_on_Acura_Support_Community()
+    #self.search_questions_on_Acura_Support_Community()
     self.search_IFixit_on_home_screen()
 
   def search_questions_on_Acura_Support_Community(self):
@@ -156,7 +156,7 @@ class AndroidAppTest(unittest.TestCase):
     self.swipe(element, 'RightLeft')
     time.sleep(3)
     self.driver.find_element_by_xpath("//*[@resource-id='answersSearch']").send_keys(self.question)
-    self.driver.find_element_by_xpath("//*[@resource-id='searchIcon']").click()
+    #self.driver.find_element_by_xpath("//*[@resource-id='searchIcon']").click()
     time.sleep(5)
 
     return self.driver.find_element_by_xpath("//android.view.View[contains(@content-desc,'questions') and @index=1]").get_attribute('name')
