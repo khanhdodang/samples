@@ -28,7 +28,7 @@ class AndroidAppTest(unittest.TestCase):
     self.driver.quit()
 
   def test_android_app(self):
-    #self.search_questions_on_Acura_Support_Community()
+    self.search_questions_on_Acura_Support_Community()
     self.search_IFixit_on_home_screen()
 
   def search_questions_on_Acura_Support_Community(self):
@@ -129,9 +129,9 @@ class AndroidAppTest(unittest.TestCase):
     # Get the size of screen.
     size = self.driver.get_window_size()
 
-    startx = size['width'] * 0.90
+    startx = size['width'] * 0.8
     # Find endx point which is at left side of screen.
-    endx = size['width'] * 0.10
+    endx = size['width'] * 0.2
     # Find vertical point where you wants to swipe. It is in middle of screen height.
     starty = size['height'] * 0.50
 
@@ -156,10 +156,8 @@ class AndroidAppTest(unittest.TestCase):
     self.swipe(element, 'RightLeft')
     time.sleep(3)
     self.driver.find_element_by_xpath("//*[@resource-id='answersSearch']").send_keys(self.question)
-    #self.driver.find_element_by_xpath("//*[@resource-id='searchIcon']").click()
-    time.sleep(5)
 
-    return self.driver.find_element_by_xpath("//android.view.View[contains(@content-desc,'questions') and @index=1]").get_attribute('name')
+    return self.driver.find_element_by_xpath("//*[contains(@text,'Acura questions') and @index=1]").text
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(AndroidAppTest)
