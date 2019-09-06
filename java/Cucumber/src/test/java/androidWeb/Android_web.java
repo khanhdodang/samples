@@ -22,13 +22,14 @@ public class Android_web {
 	public void start_an_android_web_session() throws MalformedURLException {
 		driver = new AndroidDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesAndroidWeb());
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-		Utils.printKobitonSessionId(driver);
+		driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+		String kobitonSessionId = driver.getCapabilities().getCapability("kobitonSessionId").toString();
+		System.out.println("https://portal-test.kobiton.com/sessions/" + kobitonSessionId);
 	}
 
 	@Given("^User go to login page$")
 	public void go_to_login_page() {
 		driver.get("https://the-internet.herokuapp.com/login");
-		Utils.sleep(2);
 	}
 
 	@And("^User inputs username ([^\"]*)$")

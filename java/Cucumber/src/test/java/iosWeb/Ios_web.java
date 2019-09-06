@@ -22,13 +22,14 @@ public class Ios_web {
 	public void start_an_ios_web_session() throws MalformedURLException {
 		driver = new IOSDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesiOSWeb());
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-		Utils.printKobitonSessionId(driver);
+        driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+        String kobitonSessionId = driver.getCapabilities().getCapability("kobitonSessionId").toString();
+        System.out.println("https://portal-test.kobiton.com/sessions/" + kobitonSessionId);
 	}
 
 	@Given("^User go to login page$")
 	public void go_to_login_herokuapp_page() {
-		driver.get("http://the-internet.herokuapp.com/login");
-		Utils.sleep(2);
+		driver.get("https://the-internet.herokuapp.com/login");
 	}
 
 	@And("^User inputs username ([^\"]*)$")

@@ -23,7 +23,8 @@ public class Android_app {
 	public void start_an_android_app_session() throws MalformedURLException {
 		driver = new AndroidDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesAndroidApp());
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-		Utils.printKobitonSessionId(driver);
+		String kobitonSessionId = driver.getCapabilities().getCapability("kobitonSessionId").toString();
+		System.out.println("https://portal-test.kobiton.com/sessions/" + kobitonSessionId);
 	}
 
 	@Given("^User goes to Home page$")
