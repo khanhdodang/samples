@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Kobiton Sample Suite" parallel="tests" thread-count="10">
+	<test name="Test Android Web">
+    <classes>
+      <class name="kobiton.com.testng.AndroidWebTest"/>
+    </classes>
+  </test>
+  <test name="Test Android App">
+    <classes>
+      <class name="kobiton.com.testng.iOSAppTest"/>
+    </classes>
+  </test>
+  <test name="Test iOS Web">
+    <classes>
+      <class name="kobiton.com.testng.iOSWebTest"/>
+    </classes>
+  </test>
+  <test name="Test iOS App">
+    <classes>
+      <class name="kobiton.com.testng.iOSAppTest"/>
+    </classes>
+  </test>
+  <test name="Test Android Web 2">
+    <classes>
+      <class name="kobiton.com.testng.AndroidWebTest"/>
+    </classes>
+  </test>
+  <test name="Test Android App 2">
+    <classes>
+      <class name="kobiton.com.testng.iOSAppTest"/>
+    </classes>
+  </test>
+  <test name="Test iOS Web 2">
+    <classes>
+      <class name="kobiton.com.testng.iOSWebTest"/>
+    </classes>
+  </test>
+  <test name="Test iOS App 2">
+    <classes>
+      <class name="kobiton.com.testng.iOSAppTest"/>
+    </classes>
+  </test>
+  <test name="Test Android Web 3">
+    <classes>
+      <class name="kobiton.com.testng.AndroidWebTest"/>
+    </classes>
+  </test>
+  <test name="Test Android App 3">
+    <classes>
+      <class name="kobiton.com.testng.iOSAppTest"/>
+    </classes>
+  </test>
+  <test name="Test iOS Web 3">
+    <classes>
+      <class name="kobiton.com.testng.iOSWebTest"/>
+    </classes>
+  </test>
+  <test name="Test iOS App 3">
+    <classes>
+      <class name="kobiton.com.testng.iOSAppTest"/>
+    </classes>
+  </test>
+  <test name="Test Android Web 4">
+    <classes>
+      <class name="kobiton.com.testng.iOSWebFullAPIsTest"/>
+    </classes>
+  </test>
+  <test name="Test Android App 4">
+    <classes>
+      <class name="kobiton.com.testng.iOSWebFullAPIsTest"/>
+    </classes>
+  </test>
+  <test name="Test iOS Web 4">
+    <classes>
+      <class name="kobiton.com.testng.AndroidWebFullAPIsTest"/>
+    </classes>
+  </test>
+  <test name="Test iOS App 4">
+    <classes>
+      <class name="kobiton.com.testng.AndroidWebFullAPIsTest"/>
+    </classes>
+  </test>
+</suite>

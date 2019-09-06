@@ -1,0 +1,104 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Open session",
+        "description": "",
+        "id": "test-ifixit-application-on-android-device;open-session",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 60530633407,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User starts a session on android device",
+            "match": {
+              "location": "Android_app.start_an_android_app_session()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@androidApp"
+          },
+          {
+            "name": "@app"
+          },
+          {
+            "name": "@demoCucumber"
+          }
+        ]
+      },
+      {
+        "line": 7,
+        "name": "End session",
+        "description": "",
+        "id": "test-ifixit-application-on-android-device;end-session",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 218915,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User ends session on Android device",
+            "match": {
+              "location": "Android_app.end_an_android_app_session()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@androidApp"
+          },
+          {
+            "name": "@app"
+          },
+          {
+            "name": "@demoCucumber"
+          }
+        ]
+      }
+    ],
+    "name": "Test iFixit application on Android device",
+    "description": "",
+    "id": "test-ifixit-application-on-android-device",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/Test_android_app.feature",
+    "tags": [
+      {
+        "name": "@androidApp",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@app",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 13
+        }
+      },
+      {
+        "name": "@demoCucumber",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 18
+        }
+      }
+    ]
+  }
+]

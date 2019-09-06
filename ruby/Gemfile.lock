@@ -1,0 +1,45 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    appium_lib (10.4.0)
+      appium_lib_core (~> 3.2)
+      nokogiri (~> 1.8, >= 1.8.1)
+      tomlrb (~> 1.1)
+    appium_lib_core (3.2.2)
+      faye-websocket (~> 0.10.0)
+      selenium-webdriver (~> 3.14, >= 3.14.1)
+    childprocess (1.0.1)
+      rake (< 13.0)
+    eventmachine (1.2.7)
+    faye-websocket (0.10.9)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
+    mini_portile2 (2.4.0)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
+    power_assert (1.1.5)
+    rake (12.3.3)
+    rubyzip (1.2.3)
+    selenium-webdriver (3.142.3)
+      childprocess (>= 0.5, < 2.0)
+      rubyzip (~> 1.2, >= 1.2.2)
+    test-unit (3.3.3)
+      power_assert
+    tomlrb (1.2.8)
+    watir-webdriver (0.9.9)
+      selenium-webdriver (>= 2.46.2)
+    websocket-driver (0.7.1)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  appium_lib
+  selenium-webdriver
+  test-unit
+  watir-webdriver
+
+BUNDLED WITH
+   2.0.2
