@@ -10,7 +10,9 @@ public class Configs {
     static String API_KEY = "";
     public static final URL kobitonServerUrl(){
         try {
-            return new URL("https://" + USERNAME + ":" + API_KEY + "@api.kobiton.com/wd/hub");
+            URL kobitonServerUrl = new URL("https://" + USERNAME + ":" + API_KEY + "@api.kobiton.com/wd/hub");
+            return new URL("https://khanhdo:9e92684c-68a1-4882-a499-8894f8715bd0@api-test.kobiton.com/wd/hub");
+//            return new URL("https://" + USERNAME + ":" + API_KEY + "@api.kobiton.com/wd/hub");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
