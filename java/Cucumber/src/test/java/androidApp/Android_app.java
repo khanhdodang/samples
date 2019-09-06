@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import configs.Configs;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,18 +22,8 @@ public class Android_app {
 
 	@Given("^User starts a session on android device$")
 	public void start_an_android_app_session() throws MalformedURLException {
-		URL kobitonServerUrl = new URL("https://<KOBITON_USERNAME>:<KOBITON_API_KEY>@api.kobiton.com/wd/hub");
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("sessionName", "Automation test android app session");
-		capabilities.setCapability("sessionDescription", "Automation test android app session"); 
-		capabilities.setCapability("deviceOrientation", "portrait");  
-		capabilities.setCapability("captureScreenshots", true); 
-		capabilities.setCapability("app", "https://s3-ap-southeast-1.amazonaws.com/kobiton-devvn/apps-test/demo/iFixit.apk"); 
-		capabilities.setCapability("deviceGroup", "KOBITON"); 
-		capabilities.setCapability("deviceName", "Galaxy S7");
-		capabilities.setCapability("platformName", "Android");
-		driver = new AndroidDriver<WebElement>(kobitonServerUrl, capabilities);
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver = new AndroidDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesAndroidApp());
+		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 	}
 
 	@Given("^User goes to Home page$")

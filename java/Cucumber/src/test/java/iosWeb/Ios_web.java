@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import configs.Configs;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -18,18 +19,8 @@ public class Ios_web {
 
 	@Given("^User starts a session on iOS device$")
 	public void start_an_ios_web_session() throws MalformedURLException {
-		URL kobitonServerUrl = new URL("https://<KOBITON_USERNAME>:<KOBITON_API_KEY>@api-test.kobiton.com/wd/hub");
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("sessionName", "Automation test ios web session");
-		capabilities.setCapability("sessionDescription", "Automation test ios web session");
-		capabilities.setCapability("deviceOrientation", "portrait");
-		capabilities.setCapability("captureScreenshots", true);
-		capabilities.setCapability("browserName", "safari");
-		capabilities.setCapability("deviceGroup", "KOBITON");
-		capabilities.setCapability("deviceName", "iPad mini 2G (Cellular)");
-		capabilities.setCapability("platformName", "iOS");
-		driver = new io.appium.java_client.ios.IOSDriver<WebElement>(kobitonServerUrl, capabilities);
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver = new IOSDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesiOSWeb());
+		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 	}
 
 	@Given("^User go to login page$")
@@ -59,7 +50,7 @@ public class Ios_web {
 		Assert.assertTrue(getMessage().contains(mesg));
 	}
 
-	@Given("^User ends session on Android device$")
+	@Given("^User ends session on iOS device$")
 	public void end_an_ios_web_session() {
 		try {
 			if (driver != null)
