@@ -13,29 +13,33 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import io.appium.java_client.android.AndroidDriver;
+import utils.Utils;
 
 public class Android_web {
-	public static AndroidDriver<WebElement> driver = null;
+	AndroidDriver<WebElement> driver = null;
 
 	@Given("^User starts a session on android device$")
 	public void start_an_android_web_session() throws MalformedURLException {
 		driver = new AndroidDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesAndroidWeb());
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		Utils.printKobitonSessionId(driver);
 	}
 
 	@Given("^User go to login page$")
 	public void go_to_login_page() {
-		driver.get("http://the-internet.herokuapp.com/login");
-		sleep(2);
+		driver.get("https://the-internet.herokuapp.com/login");
+		Utils.sleep(2);
 	}
 
 	@And("^User inputs username ([^\"]*)$")
 	public void input_username(String username) {
+		driver.findElementById("username").clear();
 		driver.findElementById("username").sendKeys(username);
 	}
 
 	@And("^User inputs password ([^\"]*)$")
 	public void input_password(String password) {
+		driver.findElementById("password").clear();
 		driver.findElementById("password").sendKeys(password);
 	}
 
@@ -45,9 +49,9 @@ public class Android_web {
 	}
 
 	@Then("^User will see message ([^\"]*)$")
-	public void verify_login_message(String mesg) {
-		sleep(2);
-		Assert.assertTrue(getMessage().contains(mesg));
+	public void verify_login_message(String msg) {
+		Utils.sleep(2);
+		Assert.assertTrue(getMessage().contains(msg));
 	}
 	
 	@Given("^User ends session on Android device$")
@@ -63,12 +67,4 @@ public class Android_web {
 	public String getMessage() {
 		return driver.findElementById("flash").getText();
 	}
-	
-	public void sleep(int seconds) {
-	    try {
-	      Thread.sleep(seconds * 1000);
-	    } catch (InterruptedException e) {
-	      e.printStackTrace();
-	    }
-	  }
 }

@@ -14,21 +14,23 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import io.appium.java_client.ios.IOSDriver;
+import utils.Utils;
 
 public class Ios_app {
-	public static IOSDriver<WebElement> driver = null;
+	IOSDriver<WebElement> driver = null;
 
 	@Given("^User starts a session on ios device$")
 	public void start_an_ios_app_session() throws MalformedURLException {
 		driver = new IOSDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesiOSApp());
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		Utils.printKobitonSessionId(driver);
 	}
 
 	@Given("^User goes to Home page$")
 	public void go_to_IFixit_Home_Page() {
 		WebElement homepage = driver.findElementByXPath("//XCUIElementTypeButton[@name='START A REPAIR']");
 		homepage.click();
-		sleep(2);
+		Utils.sleep(2);
 	}
 
 	@And("^User clicks on Car and Truck category$")
@@ -39,7 +41,7 @@ public class Ios_app {
 	@And("^User clicks on Acura category$")
 	public void click_on_Acura_cateogry() {
 		driver.findElementByXPath("//*[@name='Acura']").click();
-		sleep(2);
+		Utils.sleep(2);
 	}
 
 	@And("^User waits for Navigation Bar$")
@@ -75,12 +77,4 @@ public class Ios_app {
 			e.printStackTrace();
 		}
 	}
-	
-	public void sleep(int seconds) {
-	    try {
-	      Thread.sleep(seconds * 1000);
-	    } catch (InterruptedException e) {
-	      e.printStackTrace();
-	    }
-	  }
 }

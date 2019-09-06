@@ -21,7 +21,7 @@ public class Configs {
 
     public static final DesiredCapabilities desiredCapabilitiesAndroidWeb(){
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("sessionName", "Android Web");
+        capabilities.setCapability("sessionName", "Android Web Cucumber");
         capabilities.setCapability("sessionDescription", "This is an example for Android Web testing");
         capabilities.setCapability("deviceOrientation", "portrait");
         capabilities.setCapability("captureScreenshots", true);
@@ -34,7 +34,7 @@ public class Configs {
 
     public static final DesiredCapabilities desiredCapabilitiesAndroidApp(){
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("sessionName", "Android App");
+        capabilities.setCapability("sessionName", "Android App Cucumber");
         capabilities.setCapability("sessionDescription", "Automation test android app session");
         capabilities.setCapability("deviceOrientation", "portrait");
         capabilities.setCapability("captureScreenshots", true);
@@ -47,7 +47,7 @@ public class Configs {
 
     public static final DesiredCapabilities desiredCapabilitiesiOSWeb(){
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("sessionName", "iOS Web");
+        capabilities.setCapability("sessionName", "iOS Web Cucumber");
         capabilities.setCapability("sessionDescription", "This is an example for iOS Web testing");
         capabilities.setCapability("deviceOrientation", "portrait");
         capabilities.setCapability("captureScreenshots", true);
@@ -60,7 +60,7 @@ public class Configs {
 
     public static final DesiredCapabilities desiredCapabilitiesiOSApp(){
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("sessionName", "iOS App");
+        capabilities.setCapability("sessionName", "iOS App Cucumber");
         capabilities.setCapability("sessionDescription", "This is an example for iOS App testing");
         capabilities.setCapability("deviceOrientation", "portrait");
         capabilities.setCapability("captureScreenshots", true);
