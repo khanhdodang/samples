@@ -16,7 +16,7 @@ import io.appium.java_client.android.AndroidDriver;
 import utils.Utils;
 
 public class Android_web {
-	AndroidDriver<WebElement> driver = null;
+	static AndroidDriver<WebElement> driver = null;
 
 	@Given("^User starts a session on android device$")
 	public void start_an_android_web_session() throws MalformedURLException {

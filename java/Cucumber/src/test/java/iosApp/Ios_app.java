@@ -17,7 +17,7 @@ import io.appium.java_client.ios.IOSDriver;
 import utils.Utils;
 
 public class Ios_app {
-	IOSDriver<WebElement> driver = null;
+	static IOSDriver<WebElement> driver = null;
 
 	@Given("^User starts a session on ios device$")
 	public void start_an_ios_app_session() throws MalformedURLException {
