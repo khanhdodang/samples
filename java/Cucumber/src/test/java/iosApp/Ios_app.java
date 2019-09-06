@@ -23,8 +23,6 @@ public class Ios_app {
 	public void start_an_ios_app_session() throws MalformedURLException {
 		driver = new IOSDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesiOSApp());
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-		String kobitonSessionId = driver.getCapabilities().getCapability("kobitonSessionId").toString();
-		System.out.println("https://portal-test.kobiton.com/sessions/" + kobitonSessionId);
 	}
 
 	@Given("^User goes to Home page$")

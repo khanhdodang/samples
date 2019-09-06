@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import configs.Configs;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -13,6 +14,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Utils;
 
 public class Android_web {
@@ -23,8 +26,6 @@ public class Android_web {
 		driver = new AndroidDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesAndroidWeb());
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
-		String kobitonSessionId = driver.getCapabilities().getCapability("kobitonSessionId").toString();
-		System.out.println("https://portal-test.kobiton.com/sessions/" + kobitonSessionId);
 	}
 
 	@Given("^User go to login page$")
@@ -34,19 +35,19 @@ public class Android_web {
 
 	@And("^User inputs username ([^\"]*)$")
 	public void input_username(String username) {
-		driver.findElementById("username").clear();
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
 		driver.findElementById("username").sendKeys(username);
 	}
 
 	@And("^User inputs password ([^\"]*)$")
 	public void input_password(String password) {
-		driver.findElementById("password").clear();
 		driver.findElementById("password").sendKeys(password);
 	}
 
 	@And("^User clicks login button$")
 	public void click_Login() {
-		driver.findElementByXPath("//form[@name='login']").submit();
+		driver.findElementByXPath("//button/i[contains(text(), 'Login')]").click();
 	}
 
 	@Then("^User will see message ([^\"]*)$")

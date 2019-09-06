@@ -23,8 +23,6 @@ public class Android_app {
 	public void start_an_android_app_session() throws MalformedURLException {
 		driver = new AndroidDriver<WebElement>(Configs.kobitonServerUrl(), Configs.desiredCapabilitiesAndroidApp());
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-		String kobitonSessionId = driver.getCapabilities().getCapability("kobitonSessionId").toString();
-		System.out.println("https://portal-test.kobiton.com/sessions/" + kobitonSessionId);
 	}
 
 	@Given("^User goes to Home page$")
@@ -43,12 +41,6 @@ public class Android_app {
 	public void go_to_Acura_cateogry() {
 		driver.findElementByXPath("//android.widget.TextView[@text='Acura']").click();
 		Utils.sleep(2);
-	}
-
-	@And("^User waits for General Information$")
-	public void wait_for_general_infor() {
-		(new WebDriverWait(driver, 30))
-	      .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@text='General Information']")));
 	}
 
 	@Then("^User see items display: Acura Integra, Acura MDX, Acura RL, Acura TL, Acura TSX$")
